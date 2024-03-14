@@ -1,2 +1,6 @@
-package com.valentyn;public interface Command {
+package com.valentyn;
+
+public interface Command {
+    void execute();
 }
+

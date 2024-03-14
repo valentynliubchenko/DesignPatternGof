@@ -1,27 +1,34 @@
 @startuml
-'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+interface SaveStrategy {
+    +save(car : Car) : void
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class ConcreteStrategySaveCSV {
+    +save(car : Car) : void
 }
+
+class ConcreteStrategySaveXML {
+    +save(car : Car) : void
+}
+
+class Car {
+    -name : String
+    -power : int
+    +Car(name : String, power : int)
+    +getName() : String
+    +getPower() : int
+}
+
+class SaveContext {
+    -strategy : SaveStrategy
+    +setStrategy(strategy : SaveStrategy) : void
+    +executeSave(car : Car) : void
+}
+
+SaveStrategy <|.. ConcreteStrategySaveCSV
+SaveStrategy <|.. ConcreteStrategySaveXML
+SaveContext o-- SaveStrategy
+Car -- SaveContext
 
 @enduml

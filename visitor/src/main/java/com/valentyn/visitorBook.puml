@@ -1,27 +1,46 @@
 @startuml
-'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+    interface ItemElement {
+        +accept(visitor : Visitor) : int
+    }
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
+    interface Visitor {
+        +visit(book : Book) : int
+        +visit(video : Video) : int
+    }
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
+    class Book {
+        -price : int
+        -isbnNumber : String
+        +Book(cost : int, isbn : String)
+        +getPrice() : int
+        +getIsbnNumber() : String
+        +accept(visitor : Visitor) : int
+    }
 
-class ArrayList {
-Object[] elementData
-size()
-}
+    class Video {
+        -price : int
+        -title : String
+        +Video(price : int, title : String)
+        +getPrice() : int
+        +getTitle() : String
+        +accept(visitor : Visitor) : int
+    }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
+    class ShoppingCartVisitor implements Visitor {
+        +visit(book : Book) : int
+        +visit(video : Video) : int
+    }
+
+    class ClientVisitor {
+        +executeVisitorPattern() : void
+        -calculatePrice(items : ItemElement[]) : int
+    }
+
+Book -up-|> ItemElement
+Video -up-|> ItemElement
+ShoppingCartVisitor .up.|> Visitor
+ClientVisitor .down.> ItemElement : uses >>
+ClientVisitor .down.> Visitor : creates >>
 
 @enduml
