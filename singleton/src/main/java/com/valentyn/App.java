@@ -8,5 +8,9 @@ public class App {
         Singleton singleton = Singleton.getInstance();
 
         singleton.someMethod();
+
+        Singleton singleton2 = Singleton.getInstance();
+
+        singleton2.someMethod();
     }
 }

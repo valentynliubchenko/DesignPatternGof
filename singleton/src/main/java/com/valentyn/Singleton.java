@@ -18,6 +18,6 @@ public class Singleton {
 
 
     public void someMethod() {
-        System.out.println("do someMethod");
+        System.out.println("do someMethod  Singleton instance is : " + instance.toString());
     }
 }
