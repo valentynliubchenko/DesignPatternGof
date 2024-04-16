@@ -37,12 +37,9 @@ class DoorOpenedListener {
     + onDoorClosed(event: FridgeDoorEvent): void
 }
 
-class Main {
-    + main(args: String[]): void
-}
-
 Lamp "1" -- "1" Fridge : contains
 Fridge "1" o-- "0..*" FridgeDoorListener : listens
 Fridge *-- FridgeDoorEvent : generates
+DoorOpenedListener --|> FridgeDoorListener
 
 @enduml
