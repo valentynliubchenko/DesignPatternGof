@@ -1,7 +1,7 @@
 package com.valentyn;
 
 // Класс слушателя для обработки событий открытия и закрытия двери холодильника
-public class DoorOpenedListener implements FridgeDoorListener {
+public class ManagerDoorSensor implements FridgeDoorListener {
     @Override
     public void onDoorOpened(FridgeDoorEvent event) {
         if (event.isOpen()) {

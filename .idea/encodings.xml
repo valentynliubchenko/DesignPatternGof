@@ -3,6 +3,10 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/command/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/command/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/listener-version/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/listener-version/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/listener/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/listener/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/singleton/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/singleton/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />

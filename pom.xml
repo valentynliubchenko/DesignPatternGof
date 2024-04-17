@@ -10,7 +10,8 @@
         <module>strategy</module>
         <module>singleton</module>
         <module>visitor</module>
-        <module>visitor</module>
+        <module>listener</module>
+        <module>listener-version</module>
         <module>command</module>
     </modules>
 

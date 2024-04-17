@@ -12,7 +12,7 @@ public class ListenerPatternDemoClientApp {
         fridge.setLamp(lamp);
 
         // Создаем слушателя
-        FridgeDoorListener listener = new DoorOpenedListener();
+        FridgeDoorListener listener = new ManagerDoorSensor();
 
         // Регистрируем слушателя в холодильнике
         fridge.addDoorListener(listener);

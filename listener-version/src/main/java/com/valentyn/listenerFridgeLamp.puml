@@ -1,0 +1,45 @@
+@startuml
+
+class Lamp {
+    - isOn: boolean
+    + turnOn(): void
+    + turnOff(): void
+    + isOn(): boolean
+}
+
+class Fridge {
+    - doorOpen: boolean
+    - lamp: Lamp
+    - listeners: List<FridgeDoorListener>
+    + addDoorListener(listener: FridgeDoorListener): void
+    + removeDoorListener(listener: FridgeDoorListener): void
+    + setLamp(lamp: Lamp): void
+    + openDoor(): void
+    + closeDoor(): void
+    - fireDoorOpened(): void
+    - fireDoorClosed(): void
+}
+
+class FridgeDoorEvent {
+    - isOpen: boolean
+    - lamp: Lamp
+    + isOpen(): boolean
+    + getLamp(): Lamp
+}
+
+interface FridgeDoorListener {
+    + onDoorOpened(event: FridgeDoorEvent): void
+    + onDoorClosed(event: FridgeDoorEvent): void
+}
+
+class DoorOpenedListener {
+    + onDoorOpened(event: FridgeDoorEvent): void
+    + onDoorClosed(event: FridgeDoorEvent): void
+}
+
+Lamp "1" -- "1" Fridge : contains
+Fridge "1" o-- "0..*" FridgeDoorListener : listens
+Fridge *-- FridgeDoorEvent : generates
+DoorOpenedListener --|> FridgeDoorListener
+
+@enduml
