@@ -1,0 +1,29 @@
+@startuml
+
+class "Subject" as S {
+    + attach(observer: Observer): void
+    + detach(observer: Observer): void
+    + notify(): void
+}
+
+class "ConcreteSubject" as CS {
+    - state: int
+    - observers: List<Observer>
+    + getState(): int
+    + setState(state: int): void
+}
+
+class "Observer" as O {
+    + update(subject: Subject): void
+}
+
+class "ConcreteObserver" as CO {
+    - observerState: int
+    + update(subject: Subject): void
+}
+
+S <|-- CS
+O <|-- CO
+CS "1" o-- "0..*" O : notifies
+
+@enduml
