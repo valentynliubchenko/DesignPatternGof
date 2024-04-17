@@ -3,27 +3,15 @@ package com.valentyn;
 public class ListenerPatternDemoApp {
 
     public static void main(String[] args) {
-//        // Создаем лампочку
-//        LampN lamp = new LampN();
-//
-//        // Создаем холодильник
-//        FridgeN fridge = new FridgeN();
-//        // Устанавливаем лампочку в холодильник
-//        fridge.setLamp(lamp);
-//
-//        // Создаем слушателя
-//        FridgeDoorListener listener = new DoorOpenedListener();
-//
-//        // Регистрируем слушателя в холодильнике
-//        fridge.addDoorListener(listener);
-//
-//        // Эмулируем открытие двери холодильника
-//        fridge.openDoor();
-//
-//        // Эмулируем закрытие двери холодильника
-//        fridge.closeDoor();
-//
-//        // Удаляем слушателя из холодильника
-//        fridge.removeDoorListener(listener);
+        // Создаем лампочку
+        LampN lamp = new LampN();
+        FridgeN fridge = new FridgeN();
+
+        // Добавляем лампочку в качестве слушателя
+        fridge.addEventListener(lamp);
+
+        // Эмулируем события открытия и закрытия двери холодильника
+        fridge.openDoor();
+        fridge.closeDoor();
     }
 }
